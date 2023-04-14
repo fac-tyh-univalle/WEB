@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+  }
+  
+  .columna-1 {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .columna-2 {
+    flex: 1;
+    padding: 20px;
+    background-color: lightgray;
+  }
