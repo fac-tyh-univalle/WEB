@@ -5,12 +5,6 @@
   height: 100px!important;
 }
 
-.app-img-1 img{
-  width: 500px!important;
-  height: 300px!important;
-  margin-top: 12em;
-}
-
 .app-img-2 img{
   width: 370px!important;
   height: 370px!important;
@@ -62,7 +56,7 @@ form{
 }
 
 form label{
-  color: white;
+  color: rgb(253, 253, 253);
 }
 
 
@@ -75,4 +69,20 @@ form label{
 
 .home-page-1 label{
   text-align: left;
+}
+input[type="file" i] {
+  appearance: menulist-button;
+  background-color: initial;
+  cursor: default;
+  align-items: flex-start;
+  color: rgb(253, 253, 253);
+  text-overflow: ellipsis;
+  white-space: pre;
+  text-align: start !important;
+  padding: initial;
+  border: initial;
+  overflow: hidden !important;
+}
+.active{
+  color: white!important;
 }

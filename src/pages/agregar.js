@@ -12,52 +12,80 @@ export default function Home() {
           <div className="app-img">
               <img src="../images/berni.png" />
               <h4>Administrador</h4>
-              <h3>Juaquin Justiniano</h3>
+              <h3>  Juaquin Justiniano</h3>
           </div>
 
           <h2></h2>
 
           <div className="app-nav">
-            <h4>Ubicacion</h4>
+            <h4>Ubicaciones</h4>
               <ul>
-                  <li><a href='/ubicacion'>Todos</a></li>
-                  <li><a className="active" href='/agregar'>Agregar</a></li>
+                  <li><a className="active" href='/agregar'>Todos</a></li>
+                  <li><a href='/agregar'>Agregar</a></li>
               </ul>
           </div>
         </div>
       </div>
       
       <div className='home-page-section-2' color='white'>
-        <h1>Ver ubicaciones</h1>
+        <h1>Agregar punto turistico</h1>
+        <div className="app-dental">
+          <div className='home-page-1'>
+            <div>
+              <form className='form'>
+                <label>Nombre:</label>
+                <input 
+                  type="text"
+                  className="form-control"
+                  placeholder=''
+                />
+                <br/>
+                <label>Direccion:</label>
 
-        <div className="app-ubicacion">
-          <div className="container">
-              <div className="app-img-3">
-                <img src="../images/berni.png"/>
-              </div>
+                <textarea 
+                  type="text"
+                  className="form-control"
+                  placeholder=''
+                  rows="4"
+                />
+                <br/>
+
+                <label>Descripcion:</label>
+                <textarea
+                  type="text"
+                  className="form-control"
+                  placeholder=''
+                  rows="5"
+                />
+                <br/>
+                <label>Foto de referencia:</label>
+                <input 
+                 type="file"
+                  accept="image/*"
+                  onChange={(e) => handleImageUpload(e)}
+                />
+                <br/>
+
+              </form>
+            </div> 
           </div>
-          <div className="container">
-              <div className="app-img-3">
-                <img src="../images/ubi.jpg"/>
-              </div>
+          <div className='home-page-2' color='white'>
+            <div>
+              <form className='form'>
+                <label>Ubicacion</label>
+                <div className="app-img-2">
+                    <img src="../images/mapa.jpg"/>
+                </div>
+              </form>
+            </div>
           </div>
-          <div className="container">
-              <div className="app-img-3">
-                <img src="../images/berni.png"/>
-              </div>
-          </div>
-          <div className="container">
-              <div className="app-img-3">
-                <img src="../images/ubi.jpg"/>
-              </div>
-          </div>
-          <div className="container">
-              <div className="app-img-3"> 
-                <img src="../images/berni.png"/>
-              </div>
-          </div>
+
         </div>
-
+          
+        <Link href='/ubicacion'>
+          <button type="submit" className="btn btn-primary">Agregar</button>
+        </Link>
+        <br/>
       </div>  
     </div>
   )
