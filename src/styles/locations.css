@@ -1,0 +1,20 @@
+
+.container{
+  border: 1px solid white;
+  border-radius: 5px;
+  padding:1px;
+  box-shadow: 0px 0px 3px 1px #fff;
+  margin-top: 20px;
+}
+
+.app-img-3 img {
+  width: 250px!important;
+  height: 250px!important;
+}
+
+.app-ubicacion {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+align-items: center;
+}

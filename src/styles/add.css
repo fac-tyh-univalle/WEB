@@ -1,0 +1,78 @@
+.app-img img{
+  border-radius: 60%;
+  border: 1px solid white;
+  width: 100px!important;
+  height: 100px!important;
+}
+
+.app-img-1 img{
+  width: 500px!important;
+  height: 300px!important;
+  margin-top: 12em;
+}
+
+.app-img-2 img{
+  width: 370px!important;
+  height: 370px!important;
+}
+
+.app-img h4{
+  color: #666;
+}
+
+.app-img h3{
+  color: white;
+}
+
+.app-nav .active{
+  color: white;
+}
+
+
+.app-nav ul li {
+  color: #666;
+}
+
+.app-nav ul li a {
+  text-decoration: none;
+  color: #666;
+}
+
+.app-nav h4 {
+  color: white;
+}
+
+.app-nav {
+  padding: 0 20px;
+}
+
+.app-menu {
+    padding: 30px;
+    width: 100%;
+}
+
+.app-menu h2{
+  border: 1px solid white;
+}
+
+
+form{
+  display: flex;
+  align-items: flex-start;
+}
+
+form label{
+  color: white;
+}
+
+
+.app-dental{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.home-page-1 label{
+  text-align: left;
+}
