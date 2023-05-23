@@ -2,36 +2,45 @@ import { useFormik } from "formik"
 import { useState } from "react"
 import PocketBase from "pocketbase"
 import { toast } from "react-toastify"
+import { Notify } from "notiflix"
+import PocketBaseService from "@/services/pocketbaseService"
+import AuthService from "@/services/authService"
+import { useRouter } from "next/router"
 
 export default function Home() {
 
-  const pb = new PocketBase('https://magnificent-painter.pockethost.io')
+  // State for UI loading when submitting form
+  const [loading, setLoading] = useState(false)
+  // Next router
+  const router = useRouter()
   
   const loginForm = useFormik({
     initialValues: {
-      username: "",
-      password: ""
+      username: "usuarioexample@gmail.com",
+      password: "santiago"
     },
     onSubmit: async (values) => {
+      // Set loading to true
+      setLoading(true)
       try {
+        // Destructure username and password from form values
         let { username, password } = values
-        
-        username = username.trim()
-        password = password.trim()
-
-        if (username && password) {
-          const authData = await pb.collection("users").authWithPassword(
-            username,
-            password
-          )
-          console.log(authData)
+        // Call login method from PocketBaseService to login user
+        const user = await PocketBaseService.login(username, password)
+        // If user and user.token exists, save user data in localStorage
+        if (user && user.token) {
+          // Save user data in localStorage
+          AuthService.setToken(user.token)
+          // Redirect to locations page
+          Notify.success("Bienvenido!")
+          // Redirect to dashboard
+          router.push("/dashboard")
         }
-
-        console.log(values.username)
-        console.log(values.password)
       } catch (e) {
-        toast.error("Usuario/contrasena incorrectos.")
-        console.log(e)
+        Notify.failure("Usuario/contrasena incorrectos.")
+        console.log('error:',e)
+      } finally {
+        setLoading(false)
       }
     }
   })
@@ -63,7 +72,9 @@ export default function Home() {
               onChange={loginForm.handleChange("password")}
             />
             <br/>
-              <button type="submit" className="btn btn-primary">Iniciar Sesión</button>
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+            {loading ? "Cargando..." : "Iniciar Sesión"}
+            </button>
             <br/>
           </form>
         </div>                    

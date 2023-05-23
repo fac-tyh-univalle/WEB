@@ -4,7 +4,9 @@ import { ToastContainer } from 'react-toastify'
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <title>TOURISTA</title>
+      </Head>
       <body>
         <Main />
         <NextScript />
