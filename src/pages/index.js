@@ -1,13 +1,19 @@
 import { useFormik } from "formik"
-import { useState } from "react"
-import PocketBase from "pocketbase"
-import { toast } from "react-toastify"
+import { useEffect, useState } from "react"
 import { Notify } from "notiflix"
 import PocketBaseService from "@/services/pocketbaseService"
 import AuthService from "@/services/authService"
 import { useRouter } from "next/router"
 
 export default function Home() {
+
+  useEffect(() => {
+    const token = AuthService.getToken()
+    
+    if (token) {
+      router.push("/dashboard")
+    }
+  },[])
 
   // State for UI loading when submitting form
   const [loading, setLoading] = useState(false)

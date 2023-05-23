@@ -8,7 +8,7 @@ class AuthService {
         }
     }
 
-    static async getToken() {
+    static getToken() {
         try {
             return localStorage.getItem("token")
         } catch (e) {
@@ -16,7 +16,7 @@ class AuthService {
         }
     }
 
-    static async removeToken() {
+    static removeToken() {
         try {
             localStorage.removeItem("token")
         } catch (e) {
