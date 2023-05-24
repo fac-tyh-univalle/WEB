@@ -1,4 +1,6 @@
 .home-page {
+  @apply bg-main-bg-color;
+  overflow: hidden;
   width: 100%!important;
   height: 100vh;
   display: flex;
@@ -11,12 +13,18 @@
   
   .home-page-section-1 {
     width: 20%;
-    background: #1a1c20;
+    @apply bg-secondary-bg-color;
+    @apply shadow-lg;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
   .home-page-section-2 h1 {
     position: relative;
-    left: -300px;
+    font-size: 1.5em;
+    margin-bottom: 1em;
     color: white;
     font-family: Yantramanav, sans-serif;
   }
@@ -30,45 +38,15 @@
     box-sizing: border-box;
     /* margin-left: 20%; */
     width: 80%;
-    background: #191b1c;
   }
   
-  .form {
+  .home-page-section-2 form {
+    width: 25vw;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  .form-control {
-    width: 1000%;
-    max-width: 438px;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #FFFFFF;
-    border-radius: 5px;
-    background-color: #3F3F3F;
-    font-size: 16px;
-
-  }
-  
-  .btn {
-    padding: 12px 180px;
-    border: none;
-    border-radius: 5px;
-    background-color: #1A1C20;
-    color: #FFFFFF;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .forget-password-a {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #3F3F3F;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
   .container {
     display: flex;
   }

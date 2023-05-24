@@ -8,9 +8,11 @@ import { useRouter } from "next/router"
 export default function Home() {
 
   useEffect(() => {
-    const token = AuthService.getToken()
-    
+    // Get token from localStorage using AuthService and check if exists
+    const token = AuthService.getAuthData()
+    // If token exists, redirect to locations page
     if (token) {
+      // Redirect to dashboard
       router.push("/dashboard")
     }
   },[])
@@ -33,19 +35,23 @@ export default function Home() {
         let { username, password } = values
         // Call login method from PocketBaseService to login user
         const user = await PocketBaseService.login(username, password)
+
+        console.log(user && user.token)
         // If user and user.token exists, save user data in localStorage
         if (user && user.token) {
           // Save user data in localStorage
-          AuthService.setToken(user.token)
+          AuthService.setAuthData(user.token, user.record)
           // Redirect to locations page
           Notify.success("Bienvenido!")
           // Redirect to dashboard
           router.push("/dashboard")
         }
       } catch (e) {
+        console.log(e)
+        // Show error message using Notify
         Notify.failure("Usuario/contrasena incorrectos.")
-        console.log('error:',e)
       } finally {
+        // Set loading to false
         setLoading(false)
       }
     }
@@ -53,7 +59,7 @@ export default function Home() {
 
   return (
     <div className='home-page'>
-      <div className='home-page-section-1'>
+      <div className='home-page-section-1 secondary-bg-color'>
         <div className="app-img-1">
             <img src="../images/Logo3.png" />
         </div>
@@ -78,7 +84,7 @@ export default function Home() {
               onChange={loginForm.handleChange("password")}
             />
             <br/>
-            <button type="submit" className="btn btn-primary" disabled={loading}>
+            <button type="submit" className="bg-secondary-text-color" disabled={loading}>
             {loading ? "Cargando..." : "Iniciar Sesión"}
             </button>
             <br/>

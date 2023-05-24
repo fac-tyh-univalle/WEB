@@ -21,6 +21,25 @@ class PocketBaseService{
             throw e
         }
     }
+
+    static async getAll(collectionName, id) {
+        try {
+            const data = await this.pb.collection(collectionName).getFullList()
+            return data
+        } catch (e) {
+            throw e
+        }
+    }
+
+    static async getOne(collectionName, id) {
+        try {
+            const data = await this.pb.collection(collectionName).getOne(id)
+            return data
+        } catch (e) {
+            throw e
+        }
+    }
+
 }
 
 export default PocketBaseService

@@ -1,0 +1,56 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.container {
+    display: flex;
+}
+
+.columna-1 {
+    flex: 1;
+    padding: 20px;
+}
+
+.columna-2 {
+    flex: 1;
+    padding: 20px;
+    background-color: lightgray;
+}
+
+input {
+    @apply shadow-lg;
+    @apply bg-secondary-bg-color;
+    @apply text-main-text-color;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: red;
+    @apply bg-secondary-text-color;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    @apply shadow-lg;
+    font-size: 16px;
+  }
+
+  .dashboard-page-section-1{
+    width: 15%;
+  }
+
+  .dashboard-page-section-2{
+    width: 85%;
+  }
+
+  .dashboard-user-navigation .active{
+    @apply text-main-text-color;
+  }
+
+  .dashboard-user-navigation ul{
+    
+  }

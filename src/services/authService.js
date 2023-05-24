@@ -1,24 +1,34 @@
 
 class AuthService {
-    static setToken(token) {
+    static setAuthData(token, userData) {
         try {   
             localStorage.setItem("token", token)
+            localStorage.setItem("userData", JSON.stringify(userData))
         } catch (e) {
             throw e
         }
     }
 
-    static getToken() {
+    static getAuthData() {
         try {
-            return localStorage.getItem("token")
+            const token = localStorage.getItem("token")
+            if (!token) return null
+            
+            const userData = JSON.parse(localStorage.getItem("userData"))
+            if (!userData) return null
+            return {
+                token,
+                userData
+            }
         } catch (e) {
             throw e
         }
     }
 
-    static removeToken() {
+    static removeAuthData() {
         try {
             localStorage.removeItem("token")
+            localStorage.removeItem("userData")
         } catch (e) {
             throw e
         }
