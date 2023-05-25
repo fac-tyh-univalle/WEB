@@ -17,7 +17,6 @@ export default function Dashboard() {
       if (!userData) {
         router.push('/')
       } else {
-
         setUser(userData)
       }
     })()

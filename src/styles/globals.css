@@ -67,6 +67,11 @@ input {
 .locations-form{
   width: 40vw;
   max-height: 98vh;
+  overflow-y: auto;
+}
+
+.locations-form textarea{
+  min-height:70px;
 }
 
 .locations-list .card img{

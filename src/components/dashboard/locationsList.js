@@ -17,9 +17,6 @@ export default function LocationsList({ user }) {
         (location) =>
           location.status === "active" && location.user_id === user.userData.id
       );
-        
-        console.log(locations)
-        console.log(categories)
 
       locations = locations.map((location) => {
         return {
@@ -49,7 +46,7 @@ export default function LocationsList({ user }) {
   };
 
   return (
-    <div className="locations-list h-screen w-full overflow-auto bg-main-bg-color">
+    <div className="locations-list h-screen w-full bg-main-bg-color">
       <div className="m-4">
         <input
           className="w-full p-2 mb-4 bg-input-bg-color text-main-text-color rounded"
