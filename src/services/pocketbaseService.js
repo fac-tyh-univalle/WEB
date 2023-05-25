@@ -45,9 +45,10 @@ class PocketBaseService{
           const newRecord = await this.pb.collection(collectionName).create(data);
           return newRecord;
         } catch (e) {
+            console.log(e)
           throw e;
         }
-      }
+    }
 }
 
 export default PocketBaseService

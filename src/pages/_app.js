@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
-import 'tailwindcss/tailwind.css'
-
+import 'leaflet/dist/leaflet.css';
 import '../styles/login.css';
+
 // import '../styles/locations.css';
 // import '../styles/add.css';
 
