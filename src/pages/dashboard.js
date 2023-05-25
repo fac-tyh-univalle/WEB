@@ -1,26 +1,31 @@
 import AuthService from '@/services/authService'
-import PocketBaseService from '@/services/pocketbaseService'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Head from 'next/head'
 import LocationsForm from '@/components/dashboard/locationsForm'
 import LocationsList from '@/components/dashboard/locationsList'
+import PocketBaseService from '@/services/pocketbaseService'
+
 export default function Dashboard() {
   const [currentContent, setCurrentContent] = useState(0)
+  const [currentLocation, setCurrentLocation] = useState(null)
   const [user, setUser] = useState(null)
+  const [categories, setCategories] = useState([])
+
   const router = useRouter()
 
   useEffect(() => {
     (async () => {
       const userData = AuthService.getAuthData()
+      const categories = await PocketBaseService.getAll('category')
+      setCategories(categories)
       if (!userData) {
         router.push('/')
       } else {
         setUser(userData)
       }
     })()
-    
   },[router])
 
 
@@ -48,12 +53,12 @@ export default function Dashboard() {
           <ul className='text-secondary-text-color'>
             <li
               className={currentContent === 0 ? 'active' : ''}
-              onClick={() => setCurrentContent(0)}>
+                onClick={() => { setCurrentLocation(null);  setCurrentContent(0); ; }}>
               <h4>Puntos Registrados</h4>
             </li>
             <li
               className={currentContent === 1 ? 'active' : ''}
-              onClick={() => setCurrentContent(1)}>
+                onClick={() => { setCurrentLocation(null); setCurrentContent(1); }}>
               <h4>Agregar Punto</h4>
             </li>
           </ul>
@@ -68,13 +73,15 @@ export default function Dashboard() {
           <>
             {user && (
               <>
-                {
-                  !currentContent ? (
-                    <LocationsList user={user} setCurrentContent={setCurrentContent} />
-                  ): (
-                    <LocationsForm user={user} setCurrentContent={setCurrentContent} />
-                  )
-                }
+                {currentContent == 0 && (
+                  <LocationsList categories={categories} user={user} setCurrentContent={setCurrentContent} setCurrentLocation={setCurrentLocation}/> 
+                )}
+                {currentContent == 1 && (
+                  <LocationsForm categories={categories} user={user} setCurrentContent={setCurrentContent} location={null} />
+                )}
+                {currentContent == 2 && (
+                  <LocationsForm categories={categories} user={user} setCurrentContent={setCurrentContent} location={currentLocation} setCurrentLocation={setCurrentLocation}/>
+                )}
               </>
             )}
         </>
