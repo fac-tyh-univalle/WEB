@@ -29,7 +29,6 @@ export default function LocationsForm({ location, user, setCurrentContent, categ
         },
         onSubmit: async (values) => {
             try {
-                console.log(values)
                 setLoading(true)
                 values.name = values.name.trim()
                 values.address = values.address.trim()
@@ -39,13 +38,14 @@ export default function LocationsForm({ location, user, setCurrentContent, categ
                 if (values.address.length === 0) throw new Error('La direccion es requerida')
                 if (values.description.length === 0) throw new Error('La descripcion es requerida')
                 if (values.category_id.length === 0 && values.category_id === '-1') throw new Error('La categoria es requerida')
-                console.log(values.photos)
                 // verify that the user has uploaded at least one photo (.jpg, .jpeg, .png)
                 if (values.photos.length === 0) throw new Error('Debe subir al menos una foto')
                 // verify that the user has uploaded at least one photo (.jpg, .jpeg, .png)
                 if (values.photos.length > 20) throw new Error('Solo puede subir hasta 20 recursos')
                 // verify that the user has uploaded at least one photo (.jpg, .jpeg, .png)
                 if (!isEditing && values.photos.filter(photo => photo.type == 'image/jpeg' || photo.type == 'image/png').length == 0) throw new Error('Debe subir al menos una foto en formato .jpg o .png')
+                // verify that the user has uploaded at least one photo (.jpg, .jpeg, .png)
+
                 if (values.longitude === null || values.latitude === null) throw new Error('Debe seleccionar una ubicacion en el mapa')
 
                 const data = new FormData()
@@ -150,9 +150,9 @@ export default function LocationsForm({ location, user, setCurrentContent, categ
                             }
 
                             const handleDelete = () => {
-                            const newFiles = [...formik.values.photos];
-                            newFiles.splice(index, 1);
-                            formik.setFieldValue('photos', newFiles);
+                                const newFiles = [...formik.values.photos];
+                                newFiles.splice(index, 1);
+                                formik.setFieldValue('photos', newFiles);
                             };
 
                             return (
@@ -176,12 +176,12 @@ export default function LocationsForm({ location, user, setCurrentContent, categ
                                     className="h-24 w-40 object-cover border border-secondary-text-color"
                                 />
                                 )}
-                                {!isEditing && <button
+                                <button
                                 onClick={handleDelete}
                                 className="absolute top-0 right-0 bg-main-bg-color text-main-text-color rounded-full w-6 h-6 flex items-center justify-center"
                                 >
                                 x
-                                </button>}
+                                </button>
                             </div>
                             );
                         })}
