@@ -36,8 +36,6 @@ export default function Home() {
         let { username, password } = values
         // Call login method from PocketBaseService to login user
         const user = await PocketBaseService.login(username, password)
-
-        console.log(user && user.token)
         // If user and user.token exists, save user data in localStorage
         if (user && user.token) {
           // Save user data in localStorage
@@ -59,39 +57,44 @@ export default function Home() {
   })
 
   return (
-    <div className='home-page'>
-      <div className='home-page-section-1 secondary-bg-color'>
-        <div className="app-img-1">
-            <Image src="/images/Logo3.png" width={200} height={200} />
+    <>
+      <Head>
+        <title>TOURISTA</title>
+      </Head>
+      <div className='home-page'>
+        <div className='home-page-section-1 secondary-bg-color'>
+          <div className="app-img-1">
+              <Image src="/images/Logo3.png" width={200} height={200} />
+          </div>
         </div>
+        <div className='home-page-section-2' color='white'>
+          <h1>Iniciar Sesión.</h1>
+          <div>
+            <form className='form' onSubmit={loginForm.handleSubmit}>
+              <input 
+                type="text"
+                value={loginForm.values.username}
+                onChange={loginForm.handleChange("username")}
+                className="form-control"
+                placeholder='Email'
+              />
+              <br/>
+              <input
+                type="password"
+                className="form-control"
+                placeholder='Contraseña'
+                value={loginForm.values.password}
+                onChange={loginForm.handleChange("password")}
+              />
+              <br/>
+              <button type="submit" className="bg-secondary-text-color" disabled={loading}>
+              {loading ? "Cargando..." : "Iniciar Sesión"}
+              </button>
+              <br/>
+            </form>
+          </div>                    
+        </div>  
       </div>
-      <div className='home-page-section-2' color='white'>
-        <h1>Iniciar Sesión.</h1>
-        <div>
-          <form className='form' onSubmit={loginForm.handleSubmit}>
-            <input 
-              type="text"
-              value={loginForm.values.username}
-              onChange={loginForm.handleChange("username")}
-              className="form-control"
-              placeholder='Email'
-            />
-            <br/>
-            <input
-              type="password"
-              className="form-control"
-              placeholder='Contraseña'
-              value={loginForm.values.password}
-              onChange={loginForm.handleChange("password")}
-            />
-            <br/>
-            <button type="submit" className="bg-secondary-text-color" disabled={loading}>
-            {loading ? "Cargando..." : "Iniciar Sesión"}
-            </button>
-            <br/>
-          </form>
-        </div>                    
-      </div>  
-    </div>
+    </>
   )
 }

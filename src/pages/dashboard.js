@@ -29,6 +29,10 @@ export default function Dashboard() {
   }
 
   return (
+    <>
+      <Head>
+        <title>TOURISTA | Dashboard</title>
+      </Head>
     <div className='dashboard-page h-screen w-full overflow-hidden flex'>
       <div className='dashboard-page-section-1 h-full bg-secondary-bg-color flex flex-col items-center border-r border-main-text-color'>
         <div className='dashboard-user-details w-full h-2/5 flex flex-col items-center justify-center border-b border-main-text-color p-4'>
@@ -60,6 +64,9 @@ export default function Dashboard() {
         </div>
       </div>
       <div className='dashboard-page-section-2  h-full bg-main-bg-color flex items-center justify-center'>
+        <>
+        
+        </>
         {
           currentContent === 0 ? (
             <h1 className='text-main-text-color'>Todos</h1>
@@ -69,6 +76,6 @@ export default function Dashboard() {
         }
       </div>
     </div>
-
+    </>
   )
 }

@@ -39,7 +39,6 @@ class PocketBaseService{
             throw e
         }
     }
-
 }
 
 export default PocketBaseService
