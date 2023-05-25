@@ -54,3 +54,12 @@ input {
   .dashboard-user-navigation ul{
     
   }
+
+  .dashboard-user-details img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    @apply my-2;
+  }

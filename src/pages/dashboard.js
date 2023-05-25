@@ -2,6 +2,7 @@ import AuthService from '@/services/authService'
 import PocketBaseService from '@/services/pocketbaseService'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 export default function Dashboard() {
   const [currentContent, setCurrentContent] = useState(0)
@@ -14,6 +15,7 @@ export default function Dashboard() {
       if (!userData) {
         router.push('/')
       } else {
+
         setUser(userData)
       }
     })()
@@ -30,9 +32,9 @@ export default function Dashboard() {
     <div className='dashboard-page h-screen w-full overflow-hidden flex'>
       <div className='dashboard-page-section-1 h-full bg-secondary-bg-color flex flex-col items-center border-r border-main-text-color'>
         <div className='dashboard-user-details w-full h-2/5 flex flex-col items-center justify-center border-b border-main-text-color p-4'>
-          <img className='rounded-full h-24 w-24 ' src='../images/berni.png' />
+          <Image src={ user && user.userData.photo ? `https://magnificent-painter.pockethost.io/api/files/_pb_users_auth_/${user.userData.id}/${user.userData.photo}` : '/images/berni.png'} width={100} height={100} />
           <h4 className='text-main-text-color'>Administrador</h4>
-          <h3 className='text-secondary-text-color'>Juaquin Justiniano</h3>
+          <h3 className='text-secondary-text-color'>{user && user.userData && user.userData.email}</h3>
         </div>
         <div className='dashboard-user-navigation w-full h-2/5 border-b border-main-text-color p-4'>
           <h3 className='text-main-text-color text-3xl mb-5'>

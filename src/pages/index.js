@@ -4,6 +4,7 @@ import { Notify } from "notiflix"
 import PocketBaseService from "@/services/pocketbaseService"
 import AuthService from "@/services/authService"
 import { useRouter } from "next/router"
+import Image from "next/image"
 
 export default function Home() {
 
@@ -61,7 +62,7 @@ export default function Home() {
     <div className='home-page'>
       <div className='home-page-section-1 secondary-bg-color'>
         <div className="app-img-1">
-            <img src="../images/Logo3.png" />
+            <Image src="/images/Logo3.png" width={200} height={200} />
         </div>
       </div>
       <div className='home-page-section-2' color='white'>
