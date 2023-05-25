@@ -20,7 +20,7 @@ export default function Dashboard() {
       }
     })()
     
-  },[])
+  },[router])
 
 
   const logout = () => {
@@ -65,15 +65,15 @@ export default function Dashboard() {
       </div>
       <div className='dashboard-page-section-2  h-full bg-main-bg-color flex items-center justify-center'>
         <>
-        
+            <h1 className='text-main-text-color'>{!currentContent ? "Todos" : "Agregar"}</h1>
+            {
+              !currentContent ? (
+                <div />
+              ): (
+                <div/>
+              )
+            }
         </>
-        {
-          currentContent === 0 ? (
-            <h1 className='text-main-text-color'>Todos</h1>
-          ) : (
-            <h1 className='text-main-text-color'>Agregar</h1>
-          )
-        }
       </div>
     </div>
     </>

@@ -39,6 +39,15 @@ class PocketBaseService{
             throw e
         }
     }
+
+    static async createItem(collectionName, data) {
+        try {
+          const newRecord = await this.pb.collection(collectionName).create(data);
+          return newRecord;
+        } catch (e) {
+          throw e;
+        }
+      }
 }
 
 export default PocketBaseService
