@@ -3,7 +3,7 @@ import PocketBaseService from '@/services/pocketbaseService'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-
+import Head from 'next/head'
 export default function Dashboard() {
   const [currentContent, setCurrentContent] = useState(0)
   const [user, setUser] = useState(null)
@@ -78,4 +78,8 @@ export default function Dashboard() {
     </div>
     </>
   )
+}
+
+const FormComponent = ({ }) => { 
+
 }

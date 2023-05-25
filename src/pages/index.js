@@ -5,8 +5,13 @@ import PocketBaseService from "@/services/pocketbaseService"
 import AuthService from "@/services/authService"
 import { useRouter } from "next/router"
 import Image from "next/image"
+import Head from "next/head"
 
 export default function Home() {
+  // State for UI loading when submitting form
+  const [loading, setLoading] = useState(false)
+  // Next router
+  const router = useRouter()
 
   useEffect(() => {
     // Get token from localStorage using AuthService and check if exists
@@ -16,12 +21,8 @@ export default function Home() {
       // Redirect to dashboard
       router.push("/dashboard")
     }
-  },[])
+  },[router])
 
-  // State for UI loading when submitting form
-  const [loading, setLoading] = useState(false)
-  // Next router
-  const router = useRouter()
   
   const loginForm = useFormik({
     initialValues: {
@@ -64,7 +65,7 @@ export default function Home() {
       <div className='home-page'>
         <div className='home-page-section-1 secondary-bg-color'>
           <div className="app-img-1">
-              <Image src="/images/Logo3.png" width={200} height={200} />
+              <Image src="/images/Logo3.png" width={200} height={200} alt={"App Logo"} />
           </div>
         </div>
         <div className='home-page-section-2' color='white'>
