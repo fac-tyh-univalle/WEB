@@ -72,7 +72,7 @@ form label{
 }
 input[type="file" i] {
   appearance: menulist-button;
-  background-color: initial;
+
   cursor: default;
   align-items: flex-start;
   color: rgb(253, 253, 253);

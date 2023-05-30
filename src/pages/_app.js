@@ -1,11 +1,16 @@
-import React from 'react';
+import "@/styles/globals.css";
+import 'leaflet/dist/leaflet.css';
 import '../styles/login.css';
-//import '../styles/dashboard.css';
-import '../styles/locations.css';
-import '../styles/add.css';
+
+// import '../styles/locations.css';
+// import '../styles/add.css';
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 
