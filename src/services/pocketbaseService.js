@@ -1,7 +1,7 @@
 import PocketBase from 'pocketbase';
 
 class PocketBaseService{
-    static pb = new PocketBase('https://magnificent-painter.pockethost.io')
+    static pb = new PocketBase('https://boring-carpenter.pockethost.io')
 
     static async login(username, password) {
         try {
