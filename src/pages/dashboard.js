@@ -42,7 +42,7 @@ export default function Dashboard() {
     <div className='dashboard-page h-screen w-full overflow-hidden flex'>
       <div className='dashboard-page-section-1 h-full bg-secondary-bg-color flex flex-col items-center border-r border-main-text-color'>
         <div className='dashboard-user-details w-full h-2/5 flex flex-col items-center justify-center border-b border-main-text-color p-4'>
-          <Image src={ user && user.userData.photo ? `https://magnificent-painter.pockethost.io/api/files/_pb_users_auth_/${user.userData.id}/${user.userData.photo}` : '/images/berni.png'} alt="User Avatar" width={100} height={100} />
+          <Image src={ user && user.userData.photo ? `https://boring-carpenter.pockethost.io/api/files/_pb_users_auth_/${user.userData.id}/${user.userData.photo}` : '/images/berni.png'} alt="User Avatar" width={100} height={100} />
           <h4 className='text-main-text-color'>Administrador</h4>
           <h3 className='text-secondary-text-color'>{user && user.userData && user.userData.email}</h3>
         </div>

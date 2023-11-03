@@ -21,7 +21,7 @@ export default function LocationsForm({ location, user, setCurrentContent, categ
             longitude: isEditing ? location.longitude : null,
             latitude: isEditing ? location.latitude : null,
             description: isEditing ? location.description : '',
-            city_id: isEditing ? location.city_id : 'g5vo0kps2zc0la1',
+            city_id: isEditing ? location.city_id : 'o6h4l0zmrj1635k',
             category_id: isEditing ? location.category_id[0] : '-1',
             user_id: user.userData.id,
             photos: isEditing ? location.photos : [],
@@ -141,7 +141,7 @@ export default function LocationsForm({ location, user, setCurrentContent, categ
                             let type;
                             if (typeof file === 'string' && isEditing && location != null) {
                                 // If it's a string, then it's a URL of an already uploaded file
-                                url = `https://magnificent-painter.pockethost.io/api/files/somsequ5ehmdtsh/${location?.id}/${file}`;
+                                url = `https://boring-carpenter.pockethost.io/api/files/somsequ5ehmdtsh/${location?.id}/${file}`;
                                 type = getTypeFromExtension(file);
                             } else if (file instanceof File) {
                                 // If it's a File object, create an object URL

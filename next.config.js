@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ['magnificent-painter.pockethost.io'],
+    domains: ['boring-carpenter.pockethost.io'],
   },
 }
 
