@@ -26,8 +26,8 @@ export default function Home() {
   
   const loginForm = useFormik({
     initialValues: {
-      username: "usuarioexample@gmail.com",
-      password: "santiago"
+      username: "",
+      password: ""
     },
     onSubmit: async (values) => {
       // Set loading to true
