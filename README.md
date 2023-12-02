@@ -1,6 +1,8 @@
     Manual Técnico
 Proyecto de Sistemas III - TOURISTA
 
+VIDEO DEMOSTRACION: https://youtu.be/_R-8sYUeJow
+
 1.	Introducción:
 Este manual tiene como propósito proporcionar una guía para la implementación y configuración de una aplicación turística desarrollada para brindar información sobre ubicaciones turísticas importantes. La aplicación está desarrollada utilizando tecnologías modernas y robustas para garantizar su fiabilidad y escalabilidad.
 
